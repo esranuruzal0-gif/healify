@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class healthyrecipe {
+public class HealthyRecipe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,10 +18,10 @@ public class healthyrecipe {
     private int prepTime;
     private boolean healthy;
 
-    public healthyrecipe() {
+    public HealthyRecipe() {
     }
 
-    public healthyrecipe(Long id, String title, String description, int calories, int prepTime, boolean healthy) {
+    public HealthyRecipe(Long id, String title, String description, int calories, int prepTime, boolean healthy) {
         this.id = id;
         this.title = title;
         this.description = description;
