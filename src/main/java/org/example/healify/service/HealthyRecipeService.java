@@ -2,7 +2,6 @@ package org.example.healify.service;
 
 import org.example.healify.dto.HealthyRecipeDto;
 import org.example.healify.entity.HealthyRecipe;
-import org.example.healify.exception.RecipeNotFoundException;
 import org.example.healify.repository.HealthyRecipeRepository;
 import org.springframework.stereotype.Service;
 
@@ -23,12 +22,11 @@ public class HealthyRecipeService {
 
     public HealthyRecipe getRecipeById(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new RecipeNotFoundException("Tarif bulunamadı: " + id));
+                .orElseThrow(() -> new RuntimeException("Tarif bulunamadi: " + id));
     }
 
     public HealthyRecipe createRecipe(HealthyRecipeDto dto) {
-        HealthyRecipe recipe = mapToEntity(dto);
-        return repository.save(recipe);
+        return repository.save(mapToEntity(dto));
     }
 
     public HealthyRecipe updateRecipe(Long id, HealthyRecipeDto dto) {
