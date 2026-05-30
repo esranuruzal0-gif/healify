@@ -1,131 +1,67 @@
 package org.example.healify.dto;
 
+import jakarta.validation.constraints.*;
+
 public class HealthyRecipeDto {
 
+    @NotBlank(message = "Tarif adı boş olamaz")
     private String recipeName;
+
+    @NotBlank(message = "Kategori boş olamaz")
     private String category;
+
+    @NotNull(message = "Kalori değeri boş olamaz")
+    @Min(value = 1, message = "Kalori en az 1 olmalıdır")
     private Integer calories;
+
+    @NotNull(message = "Hazırlama süresi boş olamaz")
+    @Min(value = 1, message = "Hazırlama süresi en az 1 dakika olmalıdır")
     private Integer preparationTime;
+
+    @NotBlank(message = "Malzemeler boş olamaz")
     private String ingredients;
+
+    @NotBlank(message = "Yapılış adımları boş olamaz")
     private String instructions;
+
     private Boolean healthy;
     private Integer protein;
     private Integer carbohydrate;
     private Integer fat;
     private Boolean vegan;
     private Boolean glutenFree;
+
+    @Pattern(regexp = "Kolay|Orta|Zor", message = "Zorluk seviyesi Kolay, Orta veya Zor olmalıdır")
     private String difficulty;
+
     private String imageUrl;
 
-    public String getRecipeName() {
-        return recipeName;
-    }
-
-    public void setRecipeName(String recipeName) {
-        this.recipeName = recipeName;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public Integer getCalories() {
-        return calories;
-    }
-
-    public void setCalories(Integer calories) {
-        this.calories = calories;
-    }
-
-    public Integer getPreparationTime() {
-        return preparationTime;
-    }
-
-    public void setPreparationTime(Integer preparationTime) {
-        this.preparationTime = preparationTime;
-    }
-
-    public String getIngredients() {
-        return ingredients;
-    }
-
-    public void setIngredients(String ingredients) {
-        this.ingredients = ingredients;
-    }
-
-    public String getInstructions() {
-        return instructions;
-    }
-
-    public void setInstructions(String instructions) {
-        this.instructions = instructions;
-    }
-
-    public Boolean getHealthy() {
-        return healthy;
-    }
-
-    public void setHealthy(Boolean healthy) {
-        this.healthy = healthy;
-    }
-
-    public Integer getProtein() {
-        return protein;
-    }
-
-    public void setProtein(Integer protein) {
-        this.protein = protein;
-    }
-
-    public Integer getCarbohydrate() {
-        return carbohydrate;
-    }
-
-    public void setCarbohydrate(Integer carbohydrate) {
-        this.carbohydrate = carbohydrate;
-    }
-
-    public Integer getFat() {
-        return fat;
-    }
-
-    public void setFat(Integer fat) {
-        this.fat = fat;
-    }
-
-    public Boolean getVegan() {
-        return vegan;
-    }
-
-    public void setVegan(Boolean vegan) {
-        this.vegan = vegan;
-    }
-
-    public Boolean getGlutenFree() {
-        return glutenFree;
-    }
-
-    public void setGlutenFree(Boolean glutenFree) {
-        this.glutenFree = glutenFree;
-    }
-
-    public String getDifficulty() {
-        return difficulty;
-    }
-
-    public void setDifficulty(String difficulty) {
-        this.difficulty = difficulty;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
+    public String getRecipeName() { return recipeName; }
+    public void setRecipeName(String recipeName) { this.recipeName = recipeName; }
+    public String getCategory() { return category; }
+    public void setCategory(String category) { this.category = category; }
+    public Integer getCalories() { return calories; }
+    public void setCalories(Integer calories) { this.calories = calories; }
+    public Integer getPreparationTime() { return preparationTime; }
+    public void setPreparationTime(Integer preparationTime) { this.preparationTime = preparationTime; }
+    public String getIngredients() { return ingredients; }
+    public void setIngredients(String ingredients) { this.ingredients = ingredients; }
+    public String getInstructions() { return instructions; }
+    public void setInstructions(String instructions) { this.instructions = instructions; }
+    public Boolean getHealthy() { return healthy; }
+    public void setHealthy(Boolean healthy) { this.healthy = healthy; }
+    public Integer getProtein() { return protein; }
+    public void setProtein(Integer protein) { this.protein = protein; }
+    public Integer getCarbohydrate() { return carbohydrate; }
+    public void setCarbohydrate(Integer carbohydrate) { this.carbohydrate = carbohydrate; }
+    public Integer getFat() { return fat; }
+    public void setFat(Integer fat) { this.fat = fat; }
+    public Boolean getVegan() { return vegan; }
+    public void setVegan(Boolean vegan) { this.vegan = vegan; }
+    public Boolean getGlutenFree() { return glutenFree; }
+    public void setGlutenFree(Boolean glutenFree) { this.glutenFree = glutenFree; }
+    public String getDifficulty() { return difficulty; }
+    public void setDifficulty(String difficulty) { this.difficulty = difficulty; }
+    public String getImageUrl() { return imageUrl; }
+    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
 }
